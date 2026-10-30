@@ -160,6 +160,8 @@ section.block>.wrap{padding-block:clamp(72px,10vw,128px);display:grid;gap:clamp(
 .card details[open] summary::before{transform:rotate(45deg)}
 .card ul{margin:12px 0 0;padding-left:18px;color:var(--paper);font-size:15px;display:grid;gap:6px}
 .card ul li::marker{color:var(--tag)}
+.card .repo{display:inline-block;margin-top:14px;font-family:var(--f-mono);font-size:13px;color:var(--tag);text-decoration:none;border-bottom:1px solid currentColor}
+.card .repo:hover{color:var(--paper)}
 
 /* terminal */
 .term-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
@@ -262,7 +264,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 </header>
 
 <div class="ticker" aria-hidden="true">
-  <div class="lane"><span>Kotlin<i>/</i></span><span>Java<i>/</i></span><span>Android SDK<i>/</i></span><span>Python<i>/</i></span><span>Digital forensics<i>/</i></span><span>Incident response<i>/</i></span><span>OSINT<i>/</i></span><span>Llama 3<i>/</i></span><span>Kotlin<i>/</i></span><span>Java<i>/</i></span><span>Android SDK<i>/</i></span><span>Python<i>/</i></span><span>Digital forensics<i>/</i></span><span>Incident response<i>/</i></span><span>OSINT<i>/</i></span><span>Llama 3<i>/</i></span></div>
+  <div class="lane"><span>Kotlin<i>/</i></span><span>Java<i>/</i></span><span>Android SDK<i>/</i></span><span>Python<i>/</i></span><span>Digital forensics<i>/</i></span><span>Incident response<i>/</i></span><span>OSINT<i>/</i></span><span>Ollama<i>/</i></span><span>Kotlin<i>/</i></span><span>Java<i>/</i></span><span>Android SDK<i>/</i></span><span>Python<i>/</i></span><span>Digital forensics<i>/</i></span><span>Incident response<i>/</i></span><span>OSINT<i>/</i></span><span>Ollama<i>/</i></span></div>
   <div class="lane rev"><span>Wireshark<i>✕</i></span><span>Autopsy<i>✕</i></span><span>EnCase<i>✕</i></span><span>Metasploit<i>✕</i></span><span>Retrofit<i>✕</i></span><span>Git<i>✕</i></span><span>Docker<i>✕</i></span><span>Linux<i>✕</i></span><span>Wireshark<i>✕</i></span><span>Autopsy<i>✕</i></span><span>EnCase<i>✕</i></span><span>Metasploit<i>✕</i></span><span>Retrofit<i>✕</i></span><span>Git<i>✕</i></span><span>Docker<i>✕</i></span><span>Linux<i>✕</i></span></div>
 </div>
 
@@ -290,14 +292,16 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
         <div class="glare"></div>
         <div class="tagline"><span class="evtag">EV-001</span><span class="state">Lead dev · personal</span></div>
         <h3>Auto Forensics Framework</h3>
-        <p>A Python DFIR platform that hunts for malicious code in binaries and writes up what it finds.</p>
-        <div class="stack"><span>python</span><span>llama-3</span><span>nlp</span><span>dfir</span></div>
+        <p>AI drafts, the analyst verifies, everything is cited. A triage tool that keeps a finding only when it points at real evidence.</p>
+        <div class="stack"><span>python</span><span>ollama</span><span>sha-256 citations</span><span>dfir</span></div>
         <details><summary>Examine evidence</summary>
           <ul>
-            <li>Scans binaries for malicious code using a fine-tuned Llama 3 model.</li>
-            <li>Drafts incident reports and timelines with AI, cutting manual write-up time.</li>
-            <li>Flags system anomalies with an NLP model trained on forensic artefacts.</li>
+            <li>Drafts findings with open-source LLMs via Ollama, and drops any finding that doesn't cite a hashed artifact: file, row or byte offset, and SHA-256.</li>
+            <li>Every run writes a manifest of input hashes, tool calls and the report hash, so it can be replayed and re-verified.</li>
+            <li>Treats evidence as untrusted data fenced off from model instructions, and imports Plaso, Hayabusa and Chainsaw exports.</li>
+            <li>Fine-tuning a domain model is on the roadmap.</li>
           </ul>
+          <a class="repo" href="https://github.com/GameMaster007/auto-forensics" target="_blank" rel="noopener">View source on GitHub ↗</a>
         </details>
       </article>
       <article class="card tilt rise">
@@ -317,13 +321,14 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
         <div class="glare"></div>
         <div class="tagline"><span class="evtag">EV-003</span><span class="state">Open source · in progress</span></div>
         <h3>pcaplens</h3>
-        <p>A packet-capture analysis tool for network forensics. The network animation at the top of this page is a nod to it.</p>
-        <div class="stack"><span>pcap</span><span>network forensics</span><span>open source</span></div>
+        <p>A PCAP investigator that triages packet captures into a chain-of-custody findings report. The network animation at the top of this page is a nod to it.</p>
+        <div class="stack"><span>python</span><span>pcap</span><span>network forensics</span><span>mit</span></div>
         <details><summary>Examine evidence</summary>
           <ul>
-            <li>Reads packet captures to help investigators see what happened on a network.</li>
+            <li>Turns a packet capture into a findings report an investigator can hand over.</li>
             <li>Currently in active development.</li>
           </ul>
+          <a class="repo" href="https://github.com/GameMaster007/pcaplens" target="_blank" rel="noopener">View source on GitHub ↗</a>
         </details>
       </article>
     </div>
@@ -383,6 +388,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
       <button class="btn solid magnet" type="button" id="copy">Copy email</button>
       <a class="btn magnet" href="mailto:513benchri@gmail.com">Write an email</a>
       <a class="btn magnet" href="https://www.linkedin.com/in/benjamin-christy-919194186" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn magnet" href="https://github.com/GameMaster007" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
     <div class="toast" id="toast" role="status"></div>
   </div>
@@ -575,12 +581,12 @@ Android (Kotlin, Java) · Python tooling · Northolt, London</span>`,
   practice    incident response · threat detection · malware analysis
               network forensics · vulnerability assessment · intrusion detection
   tools       Autopsy · EnCase · Wireshark · Metasploit
-  ai          Llama 3 fine-tuning · NLP for forensics · AI automation`,
+  ai          open-source LLMs via Ollama · citation-checked AI output · prompt-injection-aware design`,
     'skills --systems': () => `<span class="k">[systems]</span>
   os          Windows 10/11 · Windows Server 2019 · Linux · macOS · FreeBSD
   cloud       Microsoft 365 · Azure AD · AWS &amp; Azure basics
   governance  GDPR · ISO/IEC 27001 · 27000 · 27014`,
-    projects: () => `<span class="k">EV-001</span>  Auto Forensics Framework   python · llama-3 · dfir
+    projects: () => `<span class="k">EV-001</span>  Auto Forensics Framework   python · ollama · cited findings
 <span class="k">EV-002</span>  OSINT Insight Framework    python · multi-api · foss
 <span class="k">EV-003</span>  pcaplens                   pcap · network forensics  <span class="d">(in progress)</span>
 <span class="d">scroll up to "Case files" to examine each one</span>`,
